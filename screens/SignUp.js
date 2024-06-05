@@ -162,7 +162,7 @@ const Signup = ({ navigation }) => {
               onChangeText={(text) => setEmail(text)}
               placeholder="Enter your email"
               placeholderTextColor={COLORS.black}
-              keyboardType="numeric"
+              keyboardType="email-address"
               style={{
                 width: "80%",
               }}

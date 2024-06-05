@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 const AppContext = React.createContext();
 
+import saveData from "./helper/save_history";
 import { getAuth } from "firebase/auth";
 import { getDatabase, onValue, ref } from "firebase/database";
 const AppProvier = ({ children }) => {
@@ -11,6 +12,13 @@ const AppProvier = ({ children }) => {
     const unsubscribe = onValue(dataRef, (snapshot) => {
       const value = snapshot.val();
       setData(value);
+      // saveData({
+      //   dust: value.dust,
+      //   humi: value.humi,
+      //   gas: value.gas,
+      //   temp: value.temp,
+      //   time: new Date().toISOString(),
+      // });
     });
     // Cleanup subscription on unmount
     return () => unsubscribe();

@@ -1,4 +1,5 @@
 import { AppContext } from "@/AppContext";
+import HistoryButton from "@/components/HistoryButton";
 import React, { useContext } from "react";
 import { View, Text, Dimensions } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
@@ -56,6 +57,7 @@ const HumiditySreen = () => {
         backgroundColor: "#f0f5f9",
       }}
     >
+     <HistoryButton type="humi"/>
       <View
         style={{
           justifyContent: "center",
@@ -63,6 +65,7 @@ const HumiditySreen = () => {
           marginTop: 50,
         }}
       >
+
         <PieChart
           data={pieData2}
           donut

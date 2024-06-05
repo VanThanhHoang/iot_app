@@ -7,6 +7,7 @@ import CircularProgress from "react-native-circular-progress-indicator";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import db from "@/firebaseConfig";
+import HistoryButton from '../components/HistoryButton'
 // nhiệt độ không khi chia thành 4 loại như sau:
 // - Rất lạnh: #344047
 // - Lạnh: #60cdfe
@@ -25,6 +26,7 @@ const temperatureColors = {
   hot: "#fcb832",
   veryHot: "#ff0d04",
 };
+
 const getTemperatureText = (temp) => {
   console.log(temp);
   // enlish
@@ -116,6 +118,7 @@ const TemperatureSreen = () => {
         alignItems: "center",
       }}
     >
+     <HistoryButton type="temp"/>
       <CircularProgress
         value={getTempTitle(data?.temp ?? 0)}
         radius={120}

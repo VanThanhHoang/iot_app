@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import SpeedMeter from "../components/SpeedM";
 import { useContext } from "react";
 import { AppContext } from "@/AppContext";
+import HistoryButton from "@/components/HistoryButton";
 const GasScreen = () => {
   const { data } = useContext(AppContext);
   
@@ -30,7 +31,11 @@ const GasScreen = () => {
         backgroundColor: "#f0f5f9",
       }}
     >
-      <View>
+     <HistoryButton type="gas"/>
+
+      <View style={{
+        margin:25
+      }}>
         <SpeedMeter value={data?.gas ?? 0} />
       </View>
       <View

@@ -1,4 +1,5 @@
 import { AppContext } from "@/AppContext";
+import HistoryButton from "@/components/HistoryButton";
 import { get } from "firebase/database";
 import { useContext } from "react";
 import { View, Text, Image } from "react-native";
@@ -52,6 +53,8 @@ const DustScreen = () => {
         alignItems: "center",
       }}
     >
+     <HistoryButton type="dust"/>
+
       <View
         style={{
           position: "absolute",
@@ -86,6 +89,10 @@ const DustScreen = () => {
         inActiveStrokeOpacity={0.5}
         inActiveStrokeWidth={20}
         titleStyle={{ fontWeight: "bold" }}
+        progressFormatter={(value) => {
+          "worklet";
+          return value.toFixed(2); // 2 decimal places
+        }}
       />
 
       <Text

@@ -13,6 +13,8 @@ import { AppContext } from "./AppContext";
 import { getAuth } from "firebase/auth";
 import HomeTab from './screens/BottomTab'
 import ChangePassScreen from './screens/ChangePass'
+import HistoryScreen from './screens/HistoryScreen'
+import App from "./app";
 const AppNavigation = () => {
   const { isLoading } = useContext(AppContext);
   const auth = getAuth();
@@ -22,12 +24,13 @@ const AppNavigation = () => {
         screenOptions={{
           headerShown: false,
         }}
+        initialRouteName={auth.currentUser ? "HomeTab" : "Login"}
       >
         <AppStack.Screen name="HomeTab" component={HomeTab} />
-
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Register" component={SignUp} />
         <AppStack.Screen name="Changepass" component={ChangePassScreen} />
+        <AppStack.Screen name="History" component={HistoryScreen} />
       </AppStack.Navigator>
       <LoadingDialog open={isLoading} />
     </View>
