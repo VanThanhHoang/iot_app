@@ -12,13 +12,15 @@ const AppProvier = ({ children }) => {
     const unsubscribe = onValue(dataRef, (snapshot) => {
       const value = snapshot.val();
       setData(value);
-      // saveData({
-      //   dust: value.dust,
-      //   humi: value.humi,
-      //   gas: value.gas,
-      //   temp: value.temp,
-      //   time: new Date().toISOString(),
-      // });
+      saveData({
+        dust: value.dust,
+        humi: value.humi,
+        gas: value.gas,
+        temp: value.temp,
+        airquality: value.airquality,
+        time: new Date().toISOString(),
+        
+      });
     });
     // Cleanup subscription on unmount
     return () => unsubscribe();

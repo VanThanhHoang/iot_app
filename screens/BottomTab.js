@@ -4,6 +4,8 @@ import TempScreen from "./Temperature";
 import HumScreen from "./Humidity";
 import HumiditySreen from "./Humidity";
 import GasScreen from "./Gas";
+import AirScreen from "./Air";
+
 import DustScreen from "./Dust";
 import AccountScreen from "./Account";
 const Tab = createBottomTabNavigator();
@@ -21,6 +23,37 @@ function HomeTab() {
         },
       }}
     >
+       <Tab.Screen
+        options={{
+          ...screenOptions,
+          tabBarShowLabel: true,
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                color: focused ? "#ffb74d" : "gray",
+                fontSize: 11,
+                fontWeight: "bold",
+              }}
+            >
+              Air quality
+            </Text>
+          ),
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Image
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? "#ffb74d" : "gray",
+                }}
+                source={require("../assets/ai.png")}
+              />
+            );
+          },
+        }}
+        name="Air quality"
+        component={AirScreen}
+      />
       <Tab.Screen
         options={{
           ...screenOptions,
