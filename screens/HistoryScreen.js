@@ -30,7 +30,7 @@ const HistoryScreen = () => {
         console.log(index)
         // format time dd/mm hh:mm
         const date = new Date(item.time);
-        const dateFormated = `${date.getDate()}/${date.getMonth()} ${date.getHours()}:${date.getMinutes()}`;
+        const dateFormated = `${date.getDate()}/${date.getMonth()+1} ${date.getHours()}:${date.getMinutes()}`;
 
     return {
       value: item[routeData.type],

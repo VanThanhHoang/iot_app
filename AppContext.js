@@ -12,6 +12,8 @@ const AppProvier = ({ children }) => {
     const unsubscribe = onValue(dataRef, (snapshot) => {
       const value = snapshot.val();
       setData(value);
+    // 1 minute
+    setTimeout(() => {
       saveData({
         dust: value.dust,
         humi: value.humi,
@@ -19,8 +21,8 @@ const AppProvier = ({ children }) => {
         temp: value.temp,
         airquality: value.airquality,
         time: new Date().toISOString(),
-        
       });
+    }, 60000);
     });
     // Cleanup subscription on unmount
     return () => unsubscribe();
